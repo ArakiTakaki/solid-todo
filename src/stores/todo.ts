@@ -21,11 +21,12 @@ export interface Todo {
 }
 
 export const createExampleTodo = (): Task => {
+    console.log(Math.round(Math.random()) === 1);
     return {
         id: Math.random(),
         title: `サンプルTODO ${Math.floor(Math.random() * 1000)}`,
         description: null,
-        completed: false,
+        completed: Math.round(Math.random()) === 1,
         createdAt: (new Date()).toISOString(),
         date: (new Date()).toISOString(),
         deletedAt: (new Date()).toISOString(),

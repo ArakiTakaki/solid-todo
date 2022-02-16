@@ -3,14 +3,14 @@ import styles from './Checkbox.module.css';
 
 interface CheckboxProps {
     // onClick?: JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent>;
-    children?: never;
     checked?: boolean;
-    onChecked: (val :boolean) => void;
+    onChecked?: (val :boolean) => void;
 };
 
 export const Checkbox: Component<CheckboxProps> = ({
     checked,
     onChecked,
+    children,
 }) => {
     return (
         <label>
@@ -19,10 +19,11 @@ export const Checkbox: Component<CheckboxProps> = ({
                 class={styles['wrap']}
                 checked={checked}
                 onChange={(e) => {
-                    onChecked(e.currentTarget.checked);
+                    onChecked && onChecked(e.currentTarget.checked);
                 }}
             />
             <span class={styles['check']} />
+            {children}
         </label>
     )
 };

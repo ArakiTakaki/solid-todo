@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import styles from './App.module.css';
+import './App.css';
 import { Todo } from './pages/Todo';
 import { localStorageTodoRepository } from './repository/todoRepository';
 import { createExampleTodo } from './stores/todo';
@@ -13,7 +13,7 @@ const App: Component = () => {
   }
   
   return (
-    <div class={styles.App}>
+    <div>
       <p>
         <Todo
           restoreRepository={localStorageTodoRepository.restore}

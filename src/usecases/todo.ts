@@ -1,19 +1,19 @@
 import { DeepReadonly, produce, unwrap } from "solid-js/store";
 import { setTodoStoreState, Task, TaskID, Todo, todoStoreState } from "../stores/Todo"
 
-export type RestoreTodoRepository = () => Todo;
-export type SaveTodoRepository = (todo: Todo) => void;
+export type RestoreTodoRepository = () => Promise<Todo>;
+export type SaveTodoRepository = (todo: Todo) => Promise<void>;
 
-export const restoreTodo = (repository: RestoreTodoRepository) => {
-    const todo = repository()
+export const restoreTodo = async (repository: RestoreTodoRepository) => {
+    const todo = await repository()
     setTodoStoreState(todo);
 };
 
-export const saveTodo = (repository: SaveTodoRepository) => { 
-    repository(unwrap(todoStoreState));
+export const saveTodo = (todo: Todo) => async (repository: SaveTodoRepository) => { 
+    await repository(todo);
 };
 
-export const getTodoList = (): DeepReadonly<Todo> => {
+export const useTodoList = (): DeepReadonly<Todo> => {
     return todoStoreState;
 };
 

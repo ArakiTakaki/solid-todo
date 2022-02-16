@@ -1,5 +1,6 @@
 import { DeepReadonly, produce, unwrap } from "solid-js/store";
 import { setTodoStoreState, Task, TaskID, Todo, todoStoreState } from "../stores/Todo"
+import { v4 } from 'uuid';
 
 export type RestoreTodoRepository = () => Promise<Todo>;
 export type SaveTodoRepository = (todo: Todo) => Promise<void>;
@@ -17,9 +18,27 @@ export const useTodoList = (): DeepReadonly<Todo> => {
     return todoStoreState;
 };
 
-export const pushTask = (task: Task) => {
+export const pushTask = (
+    title: string, 
+    {
+        id = v4(),
+        description = null,
+        completed = false,
+        createdAt = (new Date()).toISOString(),
+        date = null,
+        deletedAt = null,
+    }: Partial<Omit<Task, 'title'>> = {}
+    ) => {
     setTodoStoreState(produce((state) => {
-        state.values.push(task);
+        state.values.push({
+            id,
+            title,
+            description,
+            completed,
+            createdAt,
+            date,
+            deletedAt
+        });
     }));
 };
 

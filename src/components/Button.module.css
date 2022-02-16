@@ -1,0 +1,10 @@
+.wrap {
+    display: inline-block;
+    padding: 8px 1em;
+    height: 100%;
+    background-color: rgb(26, 140, 216);
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 9999px;
+    letter-spacing: 0.2em;
+}

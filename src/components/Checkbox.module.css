@@ -1,0 +1,23 @@
+.wrap {
+    padding: 8px 1em;
+    border-radius: 9999px;
+    background-color: rgb(242, 243, 245);
+    outline: 0;
+    border: 0;
+}
+
+.check {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    outline: 1px solid rgb(110, 118, 125);
+    border-radius: 2px;
+}
+
+/* .wrap + .check {
+} */
+
+.wrap:checked + .check {
+    background-color: rgb(102, 194, 242);
+    outline: 1px solid rgb(102, 194, 242);
+}

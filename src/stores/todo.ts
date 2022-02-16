@@ -10,7 +10,7 @@ export interface Task {
     description: string | null;
     completed: boolean;
     createdAt: ISODate;
-    date: ISODate;
+    date: ISODate | null;
     deletedAt: ISODate | null;
 }
 

@@ -14,10 +14,44 @@
     border-radius: 2px;
 }
 
-/* .wrap + .check {
-} */
-
 .wrap:checked + .check {
+    position: relative;
     background-color: rgb(102, 194, 242);
     outline: 1px solid rgb(102, 194, 242);
+}
+
+.wrap:checked + .check:before {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    width: 6px;
+    height: 3px;
+    top: 50%;
+    left: 50%;
+    border-radius: 9999px;
+    transform: 
+        translate(-50%, -50%)
+        translateY(-2px)
+        translateX(-1px)
+        rotate(45deg)
+        translateY(5px)
+        translateX(1px);
+}
+
+.wrap:checked + .check:after {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    width: 12px;
+    height: 3px;
+    top: 50%;
+    left: 50%;
+    border-radius: 9999px;
+    transform:
+        translate(-50%, -50%) 
+        translateY(-2px)
+        translateX(-1px)
+        rotate(45deg) 
+        rotate(90deg) 
+        translateY(-3px);
 }

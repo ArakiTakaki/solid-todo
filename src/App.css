@@ -20,3 +20,11 @@ input {
     outline: 0;
     border: 0;
 }
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked + label {
+    background: #ff0000;
+}

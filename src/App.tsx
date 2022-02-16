@@ -2,6 +2,7 @@ import type { Component } from 'solid-js';
 
 import './App.css';
 import { Button } from './components/Button';
+import { Checkbox } from './components/Checkbox';
 import { Text } from './components/Text';
 import { Todo } from './pages/Todo';
 import { localStorageTodoRepository } from './repository/todoRepository';
@@ -26,6 +27,9 @@ const App: Component = () => {
       <Button onClick={handleMockTodo}>
         追加
       </Button>
+      <div>
+        <Checkbox />
+      </div>
     </div>
   );
 };

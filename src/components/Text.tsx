@@ -2,7 +2,6 @@ import { Component, JSX } from 'solid-js';
 import styles from './Text.module.css';
 
 interface TextProps {
-    // onClick?: JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent>;
     width?: string;
     children?: never;
     placeholder?: string;

@@ -1,4 +1,9 @@
 
+.title {
+    font-size: 2rem;
+    padding: 8px 8px 16px 8px;
+}
+
 .list {
     margin-top: 16px;
 }

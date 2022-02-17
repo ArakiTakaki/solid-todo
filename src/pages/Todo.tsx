@@ -34,10 +34,10 @@ export const Todo: Component<TodoProps> = ({
 
     return (
         <div>
-            <h2>{todo.boardName}</h2>
+            <h2 class={styles['title']}>{todo.boardName}</h2>
             <div class={styles['input-wrap']}>
                 <span class={styles['text']}>
-                    <Text value={text()} placeholder='テキストを入力してください' onChange={(text) => setText(text)} />
+                    <Text width='18em' value={text()} placeholder='テキストを入力してください' onChange={(text) => setText(text)} />
                 </span>
                 <span class={styles['add']}>
                     <Button onClick={handleAddTodo}>追加</Button>

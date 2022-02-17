@@ -42,10 +42,21 @@ export const pushTask = (
     }));
 };
 
+export const updateTask = (id: TaskID, task: Partial<Omit<Task, 'id'>>) => {
+    setTodoStoreState(produce((state) => {
+        const idx = state.values.findIndex(val => val.id === id);
+        if (idx === -1) return;
+        state.values[idx] = {
+            ...state.values[idx],
+            ...task
+        };
+    }));
+};
+
 export const removeTask = (id: TaskID) => {
     setTodoStoreState(produce((state) => {
         const index = state.values.findIndex(val => val.id === id);
-        state.values.splice(index, index + 1)
+        state.values.splice(index, 1)
     }));
 };
 

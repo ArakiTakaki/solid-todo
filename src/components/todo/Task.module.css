@@ -1,0 +1,12 @@
+
+.wrap {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.text {
+    color: #fff;
+    margin-left: 1em;
+    letter-spacing: 0.1em;
+}

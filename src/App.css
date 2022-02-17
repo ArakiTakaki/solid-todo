@@ -5,6 +5,11 @@
     font-weight: 400;
     line-height: 1;
     box-sizing: border-box;
+    color: #fff;
+}
+
+html {
+    background-color: #000;
 }
 
 button {
@@ -19,4 +24,14 @@ button {
 input {
     outline: 0;
     border: 0;
+    letter-spacing: 0.1em;
+    background-color: transparent;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked + label {
+    background: #ff0000;
 }

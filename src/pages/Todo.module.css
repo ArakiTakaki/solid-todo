@@ -1,0 +1,24 @@
+
+.title {
+    font-size: 2rem;
+    padding: 8px 8px 16px 8px;
+}
+
+.list {
+    margin-top: 16px;
+}
+
+.list-item {
+    padding: 8px;
+}
+.list-item + .list-item {
+    border-top: 1px solid #333;
+}
+
+.input-wrap {
+    padding: 8px;
+}
+
+.input-wrap > .add {
+    margin-left: 8px;
+}

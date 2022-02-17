@@ -1,0 +1,22 @@
+.wrap {
+    display: inline-block;
+    color: #fff;
+    letter-spacing: 0.1em;
+    width: 15em;
+    border-bottom: 1px solid transparent;
+    padding: 0.5em 1em ;
+}
+
+.edit {
+    border-bottom: 1px solid transparent;
+    transition-duration: 250ms;
+    transition-property: border-bottom;
+}
+
+.edit.-strikethrough {
+    text-decoration: line-through;
+}
+
+.edit:focus {
+    border-bottom: 1px solid #555;
+}

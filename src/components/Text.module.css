@@ -1,5 +1,7 @@
 .wrap {
     padding: 8px 1em;
     border-radius: 9999px;
-    background-color: rgb(242, 243, 245);
+    background-color: #333;
+    color: #fff;
+    letter-spacing: 0.1em;
 }

@@ -24,6 +24,7 @@ button {
 input {
     outline: 0;
     border: 0;
+    background-color: transparent;
 }
 
 input[type="checkbox"] {

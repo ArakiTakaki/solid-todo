@@ -1,9 +1,8 @@
-import { Component, createEffect, createMemo, createSignal, For, onMount } from 'solid-js';
-import { createStore, unwrap } from 'solid-js/store';
+import { children, Component, createEffect, createMemo, createSignal, For, onMount, resetErrorBoundaries } from 'solid-js';
+import { unwrap } from 'solid-js/store';
 import { Button } from '../components/Button';
 import { Text } from '../components/Text';
 import { Task } from '../components/todo/Task';
-import { createExampleTodo } from '../stores/Todo';
 import { pushTask, restoreTodo, RestoreTodoRepository, saveTodo, SaveTodoRepository, useTodoList } from '../usecases/todo';
 import styles from './Todo.module.css';
 
@@ -17,9 +16,8 @@ export const Todo: Component<TodoProps> = ({
     restoreRepository,
 }) => {
     const todo = useTodoList()
-    const [text, setText] = createStore({ value: '' });
+    const [text, setText] = createSignal('');
     
-
     onMount(() => {
         restoreTodo(restoreRepository);
     });
@@ -30,10 +28,8 @@ export const Todo: Component<TodoProps> = ({
     });
 
     const handleAddTodo = () => {
-        pushTask(text.value);
-        setText({
-            value: '',
-        });
+        pushTask(text());
+        setText('');
     };
 
     return (
@@ -41,7 +37,7 @@ export const Todo: Component<TodoProps> = ({
             <h2>{todo.boardName}</h2>
             <div class={styles['input-wrap']}>
                 <span class={styles['text']}>
-                    <Text value={text.value} placeholder='テキストを入力してください' onChange={(text) => setText({value: text})} />
+                    <Text value={text()} placeholder='テキストを入力してください' onChange={(text) => setText(text)} />
                 </span>
                 <span class={styles['add']}>
                     <Button onClick={handleAddTodo}>追加</Button>
@@ -52,13 +48,7 @@ export const Todo: Component<TodoProps> = ({
                     {(value) => (
                         <li class={styles['list-item']}>
                             <Task
-                                id={value.id}
-                                title={value.title}
-                                description={value.description}
-                                completed={value.completed}
-                                createdAt={value.createdAt}
-                                date={value.date}
-                                deletedAt={value.deletedAt}
+                                {...value}
                             />
                         </li>
                     )}

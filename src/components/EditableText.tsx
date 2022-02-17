@@ -1,29 +1,26 @@
 import { Component } from 'solid-js';
-import styles from './Text.module.css';
+import styles from './EditableText.module.css';
 
-interface TextProps {
-    value: string;
+interface EditableTextProps {
     width?: string;
-    children?: never;
+    children: string;
     placeholder?: string;
     onChange?: (text: string) => void;
+    disabled?: boolean;
 };
 
-export const Text: Component<TextProps> = (props) => {
+export const EditableText: Component<EditableTextProps> = (props) => {
     return (
         <span>
             <input
                 type='text'
-                value={props.value}
+                value={props.children}
                 class={styles['wrap']}
-                placeholder={props.placeholder}
                 onInput={e => {
                     props.onChange && props.onChange(e.currentTarget.value);
                 }}
-                style={{
-                    width: props.width,
-                }}
+                disabled={props.disabled}
             />
         </span>
-    )
+    );
 };

@@ -25,7 +25,7 @@ export const EditableText: Component<EditableTextProps> = (props) => {
                 [styles['wrap']]: true,
                 [styles['edit']]: true,
             }}
-            onInput={e => {
+            onChange={e => {
                 props.onChange && props.onChange(e.currentTarget.value);
             }}
             disabled={props.disabled}

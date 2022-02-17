@@ -19,10 +19,10 @@ export const Checkbox: Component<CheckboxProps> = ({
     });
 
     return (
-        <label>
+        <label class={styles['wrap']}>
             <input
                 type='checkbox'
-                class={styles['wrap']}
+                class={styles['input']}
                 checked={isChecked()}
                 onChange={(e) => {
                     onChecked && onChecked(e.currentTarget.checked);

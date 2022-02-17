@@ -1,9 +1,5 @@
 .wrap {
-    padding: 8px 1em;
-    border-radius: 9999px;
-    background-color: rgb(242, 243, 245);
-    outline: 0;
-    border: 0;
+    cursor: pointer;
 }
 
 .check {
@@ -14,13 +10,13 @@
     border-radius: 2px;
 }
 
-.wrap:checked + .check {
+.input:checked + .check {
     position: relative;
     background-color: rgb(102, 194, 242);
     outline: 1px solid rgb(102, 194, 242);
 }
 
-.wrap:checked + .check:before {
+.input:checked + .check:before {
     content: "";
     position: absolute;
     background-color: #fff;
@@ -38,7 +34,7 @@
         translateX(1px);
 }
 
-.wrap:checked + .check:after {
+.input:checked + .check:after {
     content: "";
     position: absolute;
     background-color: #fff;

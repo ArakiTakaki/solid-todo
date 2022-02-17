@@ -24,6 +24,7 @@ button {
 input {
     outline: 0;
     border: 0;
+    letter-spacing: 0.1em;
     background-color: transparent;
 }
 
